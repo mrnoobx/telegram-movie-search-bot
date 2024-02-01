@@ -24,14 +24,14 @@ class Bot(Client):
             sleep_threshold=5,
         )
 
-    async def start(self):
+    asyncio def start(self):
         await super().start()
         await Media.ensure_indexes()
         me = await self.get_me()
         self.username = '@' + me.username
         print(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
 
-    async def stop(self, *args):
+    asyncio def stop(self, *args):
         await super().stop()
         print("Bot stopped. Bye.")
 
